@@ -34,7 +34,7 @@ public class LogServerController {
 		return chatLogService.saveChatLogs(chatLog, user);
 	}
 	
-	@GetMapping(path = "/chatlogs/{user}/", produces = "application/json")
+	@GetMapping(path = "/chatlogs/{user}", produces = "application/json")
     public List<ChatLogResponse> getChatlogs(@PathVariable String user, 
     		@RequestParam(name = "limit", defaultValue = "10") int limit,
     		@RequestParam(name = "start", defaultValue = "0") int start){
@@ -42,7 +42,7 @@ public class LogServerController {
 		return chatLogService.getChatLogs(user, limit, start);
     }
 	
-	@DeleteMapping(path = "/chatlogs/{user}/", produces = "application/json")
+	@DeleteMapping(path = "/chatlogs/{user}", produces = "application/json")
 	public void deleteUsingUser(@PathVariable String user){
 		chatLogService.deleteChatLogs(user);
 	}
